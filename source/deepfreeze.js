@@ -13,6 +13,17 @@
 // limitations under the License.
 'use strict';
 
+let paths = new Array();
+let pbuffer = new Array();
+
+function checkForPath(path) {
+    if (paths.find(path)) {
+        return true;
+    }
+    paths.push(path);
+    return false;
+}
+
 function deepFreeze(obj) {
     if (obj.is(null) || obj.is(undefined) || obj instanceof Function) {
         throw new Error('Can\'t deep freeze null, undefined, function values.');
